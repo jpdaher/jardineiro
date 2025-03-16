@@ -27,10 +27,10 @@ class MainScreen(ctk.CTkFrame):
 
         # Adicionar imagem
         self.image = PhotoImage(file="./images/file_not_found.png")
-        self.image = self.image.subsample(2, 2)
+        self.image = self.image.subsample(3, 3)
 
         image_label = ctk.CTkLabel(self.frame, image=self.image, text="")
-        image_label.pack(pady=20)
+        image_label.pack(pady=25)
 
         # Adicionar título
         title = ctk.CTkLabel(
@@ -38,7 +38,7 @@ class MainScreen(ctk.CTkFrame):
             text="Nenhuma árvore carregada",
             font=("Arial", 30, "bold")
         )
-        title.pack(pady=20)
+        title.pack(pady=0)
 
         # Adicionar subtítulo
         label = ctk.CTkLabel(
@@ -56,4 +56,4 @@ class MainScreen(ctk.CTkFrame):
             width=250,
             height=50,
         )
-        button.pack(pady=10)
+        button.pack(pady=50)

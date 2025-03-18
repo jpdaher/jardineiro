@@ -6,7 +6,7 @@ from screens.MainScreen import MainScreen
 def main():
     # Configurar o modo de aparência (light ou dark)
     ctk.set_appearance_mode("dark")
-    ctk.set_default_color_theme("green")
+    ctk.set_default_color_theme("blue")
 
     # Criar a janela principal
     app = ctk.CTk()

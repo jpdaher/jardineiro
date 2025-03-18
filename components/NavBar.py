@@ -41,13 +41,12 @@ class NavBar(Frame):
         transparent_button = CustomButton(
             self,
             text=" Carregar arquivo",
-            command=lambda: print("Botão clicado!"),
+            command=lambda: transparent_button.ReadFile(),
             width=140,
             height=50,
             fg_color="transparent",
             border_width=2,
             text_color=ctk.ThemeManager.theme["CTkButton"]["fg_color"],
-            border_color=ctk.ThemeManager.theme["CTkButton"]["fg_color"]
+            border_color=ctk.ThemeManager.theme["CTkButton"]["fg_color"],
         )
-        transparent_button.grid(row=0, column=1, padx=40,
-                                pady=5, sticky="e")  # Alinhar à direita
+        transparent_button.grid(row=0, column=1, padx=40, pady=5, sticky="e")

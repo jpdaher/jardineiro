@@ -1,6 +1,6 @@
 import customtkinter as ctk
-from components.Frame import Frame  # Seu Frame reutilizável
-from components.CustomButton import CustomButton  # Seu botão personalizado
+from components.Frame import Frame
+from components.CustomButton import CustomButton
 from tkinter import PhotoImage
 
 
@@ -13,7 +13,6 @@ class NavBar(Frame):
         """
         super().__init__(parent, height=60, corner_radius=0, **kwargs)
 
-        # Garantir que o Frame não ajuste automaticamente o tamanho
         self.pack_propagate(False)
 
         self.grid_rowconfigure(0, weight=1)
@@ -26,22 +25,19 @@ class NavBar(Frame):
 
     def add_logo(self):
         """Adiciona a imagem (logo) ao canto esquerdo da NavBar."""
-        # Carregar a imagem
-        # Substitua pelo caminho correto
         self.logo = PhotoImage(file="./images/logo.png")
         self.logo = self.logo.subsample(5, 5)
 
-        # Criar Label para exibir o logo
         logo_label = ctk.CTkLabel(self, image=self.logo, text="")
         logo_label.grid(row=0, column=0, padx=10, pady=0,
-                        sticky="w")  # Alinhar à esquerda
+                        sticky="w")
 
     def add_transparent_button(self):
         """Adiciona um botão transparente no canto direito da NavBar."""
         transparent_button = CustomButton(
             self,
             text=" Carregar arquivo",
-            command=lambda: transparent_button.ReadFile(),
+            command=lambda: transparent_button.read_file(),
             width=140,
             height=50,
             fg_color="transparent",

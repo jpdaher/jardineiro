@@ -10,11 +10,9 @@ class MainScreen(ctk.CTkFrame):
     def __init__(self, parent):
         super().__init__(parent)
 
-        # Adicionar a NavBar
         self.navbar = NavBar(self, fg_color=["#FFFFFF", "#1A1A1A"])
         self.navbar.pack(side="top", fill="x")
 
-        # Frame principal
         self.frame = Frame(
             self,
             width=650,
@@ -31,7 +29,6 @@ class MainScreen(ctk.CTkFrame):
         image_label = ctk.CTkLabel(self.frame, image=self.image, text="")
         image_label.pack(pady=25)
 
-        # Adicionar título
         title = ctk.CTkLabel(
             self.frame,
             text="Nenhuma árvore carregada",
@@ -39,7 +36,6 @@ class MainScreen(ctk.CTkFrame):
         )
         title.pack(pady=0)
 
-        # Adicionar subtítulo
         label = ctk.CTkLabel(
             self.frame,
             text="Carregue um arquivo contendo dados de árvore\n para começar.",
@@ -47,7 +43,6 @@ class MainScreen(ctk.CTkFrame):
         )
         label.pack(pady=10)
 
-        # Adicionar botão
         button = CustomButton(
             self.frame,
             text="Carregar árvore de exemplo",
@@ -58,8 +53,6 @@ class MainScreen(ctk.CTkFrame):
         button.pack(pady=50)
 
     def load_screen(self, frame_class, file):
-        print(file)
-        self.pack_forget()  # Esconde a tela atual
-        # Substitui a tela com nova classe
+        self.pack_forget()
         view_screen = frame_class(self.master, file)
         view_screen.pack(fill="both", expand=True)

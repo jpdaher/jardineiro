@@ -1,5 +1,7 @@
 from modules.tree import Node, BinaryNode, count_nodes
 
+from modules.tree import Node, BinaryNode, count_nodes, count_not_leaves
+
 
 def parse_tree(filename):
     root = None

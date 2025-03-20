@@ -1,4 +1,4 @@
-from tree import Node, BinaryNode
+from tree import Node, BinaryNode, count_nodes
 
 def parse_tree(filename):
     root = None
@@ -35,7 +35,8 @@ def parse_tree(filename):
 
     return root
 
-parse_tree("tree.txt")
+node = parse_tree("tree.txt")
+print("Number of nodes in the tree: ", count_nodes(node))
 
 
 

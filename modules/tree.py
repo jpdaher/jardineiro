@@ -26,8 +26,12 @@ class BinaryNode:
         elif value == self.value:
             pass
 
-class NodeCounter:
-    def count_all_nodes(root_node):
-        return 
-
-
+# Node utilities
+def count_nodes(root_node):
+    if not root_node.children:
+        return 1
+    else:
+        count = 1
+        for child in root_node.children:
+            count += count_nodes(child)
+        return count

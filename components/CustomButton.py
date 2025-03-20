@@ -27,5 +27,4 @@ class CustomButton(ctk.CTkButton):
         Abre uma janela de seleção de arquivo.
         """
         file_path = filedialog.askopenfilename(title="Selecione um arquivo")
-        if file_path:
-            pass
+        return file_path

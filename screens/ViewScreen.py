@@ -6,12 +6,14 @@ from components.NavBar import NavBar
 from components.CustomButton import CustomButton
 from components.CustomEntry import CustomEntry
 from components.Card import Card
+from modules.tree import count_nodes
+from modules.TxtParser import parse_tree
 
 
 class ViewScreen(ctk.CTkFrame):
-    def __init__(self, parent):
+    def __init__(self, parent, file):
         super().__init__(parent)
-
+        self.root = parse_tree(file)
         # Adicionar a NavBar
         self.navbar = NavBar(self, fg_color=["#FFFFFF", "#1A1A1A"])
         self.navbar.pack(side="top", fill="x")
@@ -25,8 +27,10 @@ class ViewScreen(ctk.CTkFrame):
         )
         self.frame.pack(side="right", fill="y", pady=10, padx=10)
 
-        total_nodes = Card(self.frame, name="Nós", value=0)
+        total_nodes = Card(self.frame, name="Nós",
+                           value=count_nodes(self.root))
         total_nodes.pack(padx=20, pady=20)
+
         non_leaves_nodes = Card(self.frame, name="Nós não folha", value=0)
         non_leaves_nodes.pack(padx=20, pady=20)
 

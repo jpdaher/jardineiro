@@ -50,15 +50,16 @@ class MainScreen(ctk.CTkFrame):
         # Adicionar botão
         button = CustomButton(
             self.frame,
-            text="Criar árvore de exemplo",
-            command=lambda: self.go_to_screen(ViewScreen),
+            text="Carregar árvore de exemplo",
+            command=lambda: self.load_screen(ViewScreen, button.read_file()),
             width=250,
             height=50,
         )
         button.pack(pady=50)
 
-    def go_to_screen(self, frame_class):
+    def load_screen(self, frame_class, file):
+        print(file)
         self.pack_forget()  # Esconde a tela atual
         # Substitui a tela com nova classe
-        view_screen = frame_class(self.master)
+        view_screen = frame_class(self.master, file)
         view_screen.pack(fill="both", expand=True)

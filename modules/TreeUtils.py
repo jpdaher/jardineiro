@@ -56,6 +56,18 @@ def locate_binary(root, value):
     else:
         return locate_binary(root.right, value)
 
-
-def remove_binary_node(root, node):
-    pass
+def delete_node(root, value):
+    if not root:
+        return root
+    elif value < root.value:
+        root.left = delete_node(root.left, value)
+    elif value > root.value:
+        root.right = delete_node(root.right, value)
+    else:
+        if not root.left:
+            return root.right
+        if not root.right:
+            return root.left
+        root.left = 
+        
+    

@@ -10,7 +10,9 @@ class MainScreen(ctk.CTkFrame):
     def __init__(self, parent):
         super().__init__(parent)
 
-        self.navbar = NavBar(self, fg_color=["#FFFFFF", "#1A1A1A"])
+        # Passa o ViewScreen como frame_class
+        self.navbar = NavBar(self, frame_class=ViewScreen,
+                             fg_color=["#FFFFFF", "#1A1A1A"])
         self.navbar.pack(side="top", fill="x")
 
         self.frame = Frame(
@@ -46,13 +48,9 @@ class MainScreen(ctk.CTkFrame):
         button = CustomButton(
             self.frame,
             text="Carregar árvore de exemplo",
-            command=lambda: self.load_screen(ViewScreen, button.read_file()),
+            command=lambda: button.load_screen(
+                self, ViewScreen, button.read_file()),
             width=250,
             height=50,
         )
         button.pack(pady=50)
-
-    def load_screen(self, frame_class, file):
-        self.pack_forget()
-        view_screen = frame_class(self.master, file)
-        view_screen.pack(fill="both", expand=True)

@@ -28,3 +28,14 @@ class CustomButton(ctk.CTkButton):
         """
         file_path = filedialog.askopenfilename(title="Selecione um arquivo")
         return file_path
+
+    def load_screen(self, parent, frame_class, file):
+        """
+        Carrega a nova tela.
+        :param parent: O widget pai atual.
+        :param frame_class: Classe da nova tela que será carregada.
+        :param file: Arquivo selecionado para carregar os dados.
+        """
+        parent.pack_forget()  # Esconde a tela atual
+        new_screen = frame_class(parent.master, file)
+        new_screen.pack(fill="both", expand=True)

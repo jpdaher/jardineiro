@@ -15,12 +15,22 @@ def node_to_nx(root):
     return graph
 
 
-def visualize_tree(graph):
-    # Usa o layout planar do NetworkX
+def mark_node(graph, highlight_node):
+    node_colors = [
+        "red" if node == highlight_node else "lightblue"
+        for node in graph.nodes
+    ]
+    return node_colors
+
+
+def visualize_tree(graph, node_colors=None):
     pos = nx.planar_layout(graph)
+
+    # Configura o gráfico
     plt.figure(figsize=(10, 8))
     nx.draw(graph, pos, with_labels=True, node_size=800,
-            node_color="lightblue", font_size=12)
+            node_color=node_colors or "lightblue",
+            font_size=12)
     plt.title("Visualização da Árvore")
 
     # Salva no buffer de memória

@@ -25,7 +25,10 @@ def locate(root, value):
         return False
     else:
         for child in root.children:
-            locate(child, value)
+            result = locate(child, value)
+            if result:
+                return result
+        return False
 
 
 def count_binary_nodes(root):

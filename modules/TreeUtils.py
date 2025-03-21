@@ -7,16 +7,14 @@ def count_nodes(root):
             count += count_nodes(child)
         return count
 
-
 def count_not_leaves(root):
     if not root.children:
         return 0
     else:
-        count = 1
+        count = 1 
         for child in root.children:
             count += count_not_leaves(child)
         return count
-
 
 def locate(root, value):
     if root.value == value:
@@ -30,16 +28,14 @@ def locate(root, value):
                 return result
         return False
 
-
 def count_binary_nodes(root):
-    if not root.left and not root.right:
+    if not root.left && not root.right:
         return 1
     else:
         count = count_binary_nodes(root.left)
         count += 1
         count += count_binary_nodes(root.right)
         return count
-
 
 def count_binary_not_leaves(root):
     if not root.left and not root.right:
@@ -50,15 +46,33 @@ def count_binary_not_leaves(root):
         count += count_binary_nodes(root.right)
         return count
 
-
 def locate_binary(root, value):
     if value < root.value:
         return locate_binary(root.left, value)
     elif value == root.value:
         return root
+    else return locate_binary(root.right, value)
+
+def inorder_successor(node):
+    node = node.right:
+        while node.right is not None and node.left is not None:
+            node = node.left
+        return node
+
+def delete_node(root, value):
+    if not root:
+        return root
+    elif value < root.value:
+        root.left = delete_node(root.left, value)
+    elif value > root.value:
+        root.right = delete_node(root.right, value)
     else:
-        return locate_binary(root.right, value)
+        if not root.left:
+            return root.right
 
-
-def remove_binary_node(root, node):
-    pass
+        if not root.right:
+            return root.left
+        
+        inorder_successor = inorder_successor(root)
+        root.value = inorder_successor.value
+        root.right = delete_node(root.right, inorder_successor.value)

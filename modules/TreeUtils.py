@@ -97,9 +97,7 @@ def delete_binary_node(root, value):
 
 
 def delete_node(root, value):
-    """
-    Remove um nó com o valor especificado de uma árvore genérica.
-    """
+
     if root.value == value:
         # Se a raiz for o nó a ser removido
         if root.children:

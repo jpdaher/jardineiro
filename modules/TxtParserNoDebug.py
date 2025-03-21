@@ -1,5 +1,6 @@
 from tree import Node, BinaryNode
 
+
 def parse_tree(filename):
     root = None
     stack = []
@@ -22,8 +23,3 @@ def parse_tree(filename):
             stack.append(new_node)
 
     return root
-
-parse_tree("tree.txt")
-
-
-

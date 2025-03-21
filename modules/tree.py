@@ -6,6 +6,7 @@ class Node:
     def add_child(self, child_node):
         self.children.append(child_node)
 
+
 class BinaryNode:
     def __init__(self, value):
         self.value = value
@@ -25,4 +26,3 @@ class BinaryNode:
                 self.left = BinaryNode(value)
         elif value == self.value:
             pass
-

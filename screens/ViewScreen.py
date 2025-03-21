@@ -6,7 +6,7 @@ from components.NavBar import NavBar
 from components.CustomButton import CustomButton
 from components.CustomEntry import CustomEntry
 from components.Card import Card
-from modules.tree import count_nodes, count_not_leaves
+from modules.TreeUtils import count_nodes, count_not_leaves
 from modules.TxtParser import parse_tree
 from modules.TreeView import node_to_nx, visualize_tree
 

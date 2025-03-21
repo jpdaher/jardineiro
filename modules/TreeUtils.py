@@ -33,6 +33,8 @@ def locate(root, value):
 
 
 def count_binary_nodes(root):
+    if not root:
+        return 0
     if not root.left and not root.right:
         return 1
     else:
@@ -43,12 +45,14 @@ def count_binary_nodes(root):
 
 
 def count_binary_not_leaves(root):
+    if not root:
+        return 0
     if not root.left and not root.right:
         return 0
     else:
-        count = count_binary_nodes(root.left)
+        count = count_binary_not_leaves(root.left)
         count += 1
-        count += count_binary_nodes(root.right)
+        count += count_binary_not_leaves(root.right)
         return count
 
 

@@ -29,8 +29,7 @@ def monitorar_e_reiniciar(diretorio, script):
             # Verificar arquivos modificados ou novos
             for caminho_arquivo, timestamp_atual in arquivos_atualizados.items():
                 if caminho_arquivo not in arquivos_iniciais or arquivos_iniciais[caminho_arquivo] != timestamp_atual:
-                    print(f"Alteração detectada no arquivo: {
-                          caminho_arquivo}. Reiniciando {script}...")
+                    print(f"Alteração detectada no arquivo: {caminho_arquivo}. Reiniciando {script}...")
                     arquivos_iniciais[caminho_arquivo] = timestamp_atual
                     processo.terminate()  # Encerra o script atual
                     # Reinicia o script principal

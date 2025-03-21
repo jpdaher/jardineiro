@@ -13,18 +13,16 @@ class BinaryNode:
         self.left = None
 
     def add_child(self, value):
-        if not self:
-            self = BinaryNode(value)
-        elif value < self.value:
-            if self.right:
-                self.right.add_child(value)
-            else:
-                self.right = BinaryNode(value)
-        elif value > self.value:
+        if value < self.value:  # value should go to the left if it's smaller
             if self.left:
                 self.left.add_child(value)
             else:
                 self.left = BinaryNode(value)
-        elif value == self.value:
-            pass
+        elif value > self.value:  # value should go to the right if it's greater
+            if self.right:
+                self.right.add_child(value)
+            else:
+                self.right = BinaryNode(value)
+        else:
+            pass  # if value == self.value, do nothing (no duplicates)
 

@@ -1,4 +1,4 @@
-from modules.TreeUtils import count_nodes, count_binary_nodes, count_not_leaves, count_binary_not_leaves, locate, locate_binary, remove_binary_node
+from modules.TreeUtils import count_nodes, count_binary_nodes, count_not_leaves, count_binary_not_leaves, locate, locate_binary, delete_binary_node, delete_node
 
 
 class TreeWrapper:
@@ -25,11 +25,17 @@ class TreeWrapper:
             return locate(self.root, value)
 
     def remove_node(self, value):
+        if value == self.root.value:
+            return False
         if self.is_binary:
             node = self.locate(value)
             if node:
-                remove_binary_node(self.root, node)
+                self.root = delete_binary_node(self.root, value)
             else:
                 return False
         else:
-            pass
+            node = self.locate(value)
+            if node:
+                self.root = delete_node(self.root, value)
+            else:
+                return False

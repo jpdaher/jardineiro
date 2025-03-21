@@ -33,3 +33,6 @@ class Card(Frame):
             self, text=value, font=("Roboto", 16))
         # Centraliza o valor no card
         self.value_label.place(relx=0.5, rely=0.6, anchor="center")
+
+    def update_value(self, new_value):
+        self.value_label.configure(text=str(new_value))
